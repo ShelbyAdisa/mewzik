@@ -1761,11 +1761,11 @@ export default function ListenerDashboard() {
                   />
                 </div>
                 
-                {currentUser && (
+                
                  {currentUser && (
                   <div className="ml-4 flex items-center">
                     <button 
-                      onClick={() => {setActiveSection('profile'); setActiveSidebarItem('profile');}}
+                      onClick={() => {setActiveSection('profile'), setActiveSidebarItem('profile');}}
                       className="flex items-center"
                     >
                       <div className="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center overflow-hidden">
@@ -1797,7 +1797,7 @@ export default function ListenerDashboard() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Welcome Back, {userName || 'Listener'}!</h2>
                 
-                {/* Recently Played */}
+                
                 {recentlyPlayed.length > 0 && (
                   <div className="mb-8">
                     <h3 className="text-xl font-bold mb-4">Recently Played</h3>

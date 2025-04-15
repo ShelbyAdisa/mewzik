@@ -24,26 +24,26 @@ const Player = ({ currentUser }) => {
     }
   };
 
-  return (
-    <div className="bg-black-dark text-white p-4 rounded-lg">
-      <div className="flex items-center gap-4">
-        <img 
-          src={currentSong?.coverUrl} 
-          alt="Album cover" 
-          className="w-16 h-16 rounded" 
-        />
-        <div>
-          <h3 className="font-semibold">{currentSong?.title}</h3>
-          <p className="text-sm text-gray-400">{currentSong?.artist}</p>
-        </div>
-        <div className="ml-auto">
-          <button onClick={togglePlay}>
-            {playing ? '❚❚' : '▶'}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="bg-black-dark text-white p-4 rounded-lg">
+  //     <div className="flex items-center gap-4">
+  //       <img 
+  //         src={currentSong?.coverUrl} 
+  //         alt="Album cover" 
+  //         className="w-16 h-16 rounded" 
+  //       />
+  //       <div>
+  //         <h3 className="font-semibold">{currentSong?.title}</h3>
+  //         <p className="text-sm text-gray-400">{currentSong?.artist}</p>
+  //       </div>
+  //       <div className="ml-auto">
+  //         <button onClick={togglePlay}>
+  //           {playing ? '❚❚' : '▶'}
+  //         </button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default Player;

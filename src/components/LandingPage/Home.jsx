@@ -9,7 +9,7 @@ export default function Landing() {
         muted 
         className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
       >
-        <source src="./LandingPage/Rising Light.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/855548/855548-sd_640_360_25fps.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 to-black/80 z-10">
         <div className="flex flex-col items-center justify-center h-full space-y-8">
