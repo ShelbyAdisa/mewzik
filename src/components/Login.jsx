@@ -28,20 +28,25 @@ export default function Login() {
 
       // Sign in user with Firebase Auth
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      
-   
       const user = userCredential.user;
       
-
+      // Fetch user data from Firestore to get role
+      const userDocRef = doc(db, "users", user.uid);
+      const userSnapshot = await getDoc(userDocRef);
       
-    
-      
-      
-      
-      if (userData.role === 'artist') {
-        navigate('/artist-dashboard');
+      if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
+        
+        // Check user role and redirect accordingly
+        if (userData.role === 'artist') {
+          navigate('/artist-dashboard');
+        } else {
+          navigate('/listener-dashboard');
+        }
       } else {
-        navigate('/listener-dashboard');
+        // If user exists in auth but not in Firestore database
+        // We could either create a default user document or show an error
+        setError('User profile not found. Please contact support.');
       }
       
     } catch (err) {
@@ -78,12 +83,19 @@ export default function Login() {
       {/* Main Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4">
         {/* Logo Header */}
-        <header className="mb-8 flex items-center">
+        <header className="mb-4 flex items-center">
           <div className="mr-2 rounded-full bg-pink-600 p-2">
             <Music size={24} />
           </div>
           <h1 className="text-3xl font-bold">Harmony</h1>
         </header>
+
+        {/* Feature Highlight - Moved to the top */}
+        <div className="mb-8 text-center">
+          <p className="text-lg text-gray-300 max-w-md">
+            Welcome back to Harmony - where music connects us all.
+          </p>
+        </div>
 
         {/* Auth Form Container */}
         <div className="w-full max-w-md">
@@ -152,13 +164,6 @@ export default function Login() {
               </div>
             </form>
           </div>
-        </div>
-
-        {/* Feature Highlight */}
-        <div className="mt-12 text-center">
-          <p className="text-lg text-gray-300 max-w-md">
-            Welcome back to Harmony - where music connects us all.
-          </p>
         </div>
       </div>
     </div>

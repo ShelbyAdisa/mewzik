@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from './Contexts/AuthContext';
 import Landing from './components/LandingPage/Home';
-import SignupPage from './components/accounts'; // Renamed to avoid conflict
+import SignupPage from './components/accounts'; 
 import ListenerDashboard from './components/Users/ListenerDashboard';
 import ArtistDashboard from './components/Users/ArtistDashboard';
 import Player from './components/Player';
