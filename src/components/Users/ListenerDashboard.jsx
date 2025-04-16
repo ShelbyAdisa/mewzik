@@ -1076,7 +1076,7 @@ export default function ListenerDashboard() {
     }
   }, [searchQuery, allSongs]);
   
-  // Set up audio event listeners
+  
   useEffect(() => {
     const audio = audioRef.current;
     
